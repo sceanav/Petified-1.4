@@ -1,0 +1,993 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- CARROUSEL ---------- */
+
+.maincarousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 12vw;
+}
+
+.contenedorCarrusel {
+  display: flex;
+
+  align-self: center;
+  margin-top: 20px;
+}
+
+.maincarousel li {
+  list-style-type: none;
+}
+
+.contenedorCarrusel1 {
+  display: flex;
+
+  align-self: center;
+  margin-top: 20px;
+}
+
+.contenedorCarrusel2 {
+  display: flex;
+
+  align-self: center;
+  margin-top: 20px;
+}
+
+.ficha,
+.ficha1,
+.ficha2 {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  width: 320px;
+  /*position: absolute;*/
+  top: 20%;
+  z-index: 1;
+  background-color: var(--ocre-light);
+  border-width: 3px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 25px;
+  box-shadow: 20px 10px 40px rgb(120, 118, 118);
+}
+
+.ficha img,
+.ficha1 img,
+.ficha2 img {
+  width: 100%;
+  overflow: hidden;
+  border-top-right-radius: 22px;
+  border-top-left-radius: 22px;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-color: #272a2e;
+}
+
+.carousel-prev,
+.carousel-next,
+.carousel-prev1,
+.carousel-next1,
+.carousel-prev2,
+.carousel-next2 {
+  font-size: 30px;
+  font-weight: bold;
+  background-color: white;
+  opacity: 80%;
+  color: rgb(173, 12, 12);
+  text-decoration: none;
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+  width: 25px;
+  margin-top: 215px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover,
+.carousel-prev1:hover,
+.carousel-next1:hover,
+.carousel-prev2:hover,
+.carousel-next2:hover {
+  background-color: black;
+  opacity: 50%;
+}
+
+.botonesCarrusel,
+.botonesCarrusel1,
+.botonesCarrusel2 {
+  margin-left: 20px;
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+
+h3 {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  margin-top: 10px;
+  padding: 10px;
+}
+/* ---------- FIN CARROUSEL ---------- */
+
+/* -------- FORMULARIO CONTACT ------- */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 600px;
+  line-height: 30px;
+  background-color: cornflowerblue;
+  padding: 30px;
+}
+
+.contenedorBoton {
+  display: flex;
+  place-content: center;
+  margin-top: 15px;
+}
+
+.buttonContacto {
+  width: 100px;
+  height: 35px;
+}
+
+.radiales {
+  line-height: 80px;
+}
+
+.spanContacto {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+  border: 2px dashed red;
+}
+/* -------- FIN FORMULARIO CONTACT ------- */
+
+/* ---------------------------------------------------- */
+
+.fotosSomosDesktop {
+  display: none;
+}
+
+#global {
+  padding: 20px;
+  display: flex;
+  justify-self: center;
+  height: 60vh;
+  width: 70vw;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  overflow-y: scroll;
+}
+#mensajes {
+  height: auto;
+}
+.texto {
+  padding: 4px;
+  background: #fff;
+}
+
+.somos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  width: 100%;
+  background-color: var(--ocrer-light);
+  min-width: 375px;
+}
+
+/* INICIO HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 137px;
+  background-color: var(--ocrer-light);
+  padding: 30px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  margin-left: -100%;
+  transition: all 0.2s linear;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+.main-nav.show {
+  margin-left: 0;
+}
+
+.nav-links {
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  padding: 20px;
+  align-items: left;
+  justify-content: flex-start;
+}
+
+.link-item {
+  margin-top: 2rem;
+  color: var(--morado);
+  font-family: "Inter", sans-serif;
+  font-size: large;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.link-item::after {
+  position: absolute;
+  content: "";
+  background-color: var(--ocre);
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  transition: 0.3s ease all;
+}
+
+.link-item:hover {
+  color: var(--ocre);
+}
+
+.link-item1:hover::after {
+  width: 50px;
+}
+.link-item2:hover::after {
+  width: 140px;
+}
+.link-item3:hover::after {
+  width: 107px;
+}
+.link-item4:hover::after {
+  width: 68px;
+}
+
+.link-item5:hover::after {
+  width: 88px;
+}
+
+.button-menu {
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  background: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button-menu span {
+  width: 37px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: var(--morado);
+  border-radius: 3px;
+  transform-origin: 4px 0px;
+  transition: all 0.2s linear;
+}
+
+.button-menu.close span {
+  opacity: 1;
+  transform: rotate(45deg) translate(0px, 0px);
+  background: #ffffff;
+}
+
+.button-menu.close span:nth-child(2) {
+  transform: rotate(-45deg) translate(-8px, 5px);
+}
+
+.button-menu.close span:nth-child(3) {
+  display: none;
+}
+
+/* FIN HEADER */
+
+.huella1 {
+  display: flex;
+  justify-content: end;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.huellas {
+  width: 50px;
+}
+
+/* INICIO SECTION */
+
+.seccion1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--ocrer-light);
+}
+
+.marcoBoton {
+  background-color: var(--ocrer-light);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.titulo {
+  display: flex;
+  place-content: column;
+  background-color: var(--ocrer-light);
+  font-family: "Inter", sans-serif;
+  font-weight: medium;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin: 40px;
+  margin-top: 10px;
+  max-width: 900px;
+  font-size: var(--text-large);
+  color: var(--morado);
+}
+
+.adopta {
+  font-size: var(--text-medium);
+  margin-top: 50px;
+  border-radius: 30px;
+  border-style: none;
+  box-shadow: 0px 0px 30px 3px var(--morado-light);
+  background-color: white;
+}
+
+.adopta:hover {
+  background-color: var(--rosado);
+}
+.adopta:focus {
+  background-color: var(--morado);
+}
+
+button::after {
+  background-color: var(--rosado);
+}
+button a {
+  display: block;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: bolder;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--morado);
+}
+
+button a:active {
+  color: white;
+}
+
+/* FIN SECTION */
+
+.huella2 {
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: -22px;
+}
+
+/* GALERIA HOME */
+
+.galeriaPrincipal {
+  background-color: antiquewhite;
+}
+
+.galeriaSomos {
+  background-color: var(--rosado);
+  display: flex;
+  justify-content: center;
+}
+
+/*
+.foto1 {
+  margin-top: -15px;
+  margin-left: 40px;
+  width: 250px;
+  transform: rotate(-12deg);
+}
+
+
+.foto2 {
+  margin-top: 15px;
+  margin-left: 50px;
+  width: 430px;
+  height: 300px;
+  transform: rotate(-8deg);
+}
+
+
+.foto3 {
+  margin-top: -50px;
+  margin-left: 50px;
+  width: 250px;
+}
+
+
+.foto4 {
+  margin-top: -15px;
+  margin-left: 50px;
+  width: 250px;
+  transform: rotate(5deg);
+}
+
+.foto5 {
+  margin-top: -15px;
+  margin-left: 50px;
+  width: 250px;
+  transform: rotate(12deg);
+}
+*/
+
+/* INICIO SECTION ENLACES */
+.iconoEnlace {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 80px;
+  background-color: white;
+}
+
+.conjuntoAdopta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: medium;
+  margin: 25px;
+  color: var(--morado);
+  margin-bottom: 20px;
+}
+
+.icono {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 60px;
+}
+
+.icono:hover {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 40px;
+}
+
+/* FIN SECTION ENLACES */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.grupoRedes {
+  display: flex;
+  justify-content: center;
+}
+
+.redes {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
+.copyRight {
+  display: flex;
+  place-content: center;
+  padding: 10px;
+  font-family: "MuseoModerno", sans-serif;
+  color: var(--morado);
+}
+
+/* TEXT OTRAS PAGINAS */
+
+.tarjetaSomos {
+  width: 100%;
+  background-color: white;
+}
+
+.marcoTitulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  padding-bottom: 0;
+  margin-bottom: -20px;
+}
+
+.marcoSomos {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  hyphens: auto;
+  margin-top: 2px;
+  margin-bottom: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 90%;
+  line-height: 0.95;
+  font-size: var(--text-medium);
+  font-family: "Inter", sans-serif;
+}
+
+.displaySomos {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .contenedorCarrusel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .contenedorCarrusel1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .contenedorCarrusel2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #global {
+    padding: 20px;
+    display: flex;
+    justify-self: center;
+    height: 100%;
+    width: 70vw;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
+    overflow-y: hidden;
+  }
+
+  .galeriaPrincipal {
+    width: auto;
+    height: 350px;
+    background-color: antiquewhite;
+    display: flex;
+    place-content: center;
+  }
+
+  .foto1 {
+    display: none;
+  }
+
+  .foto2 {
+    display: block;
+    margin: 0;
+    margin-top: 50px;
+    width: 340px;
+    height: 240px;
+    transform: rotate(-0deg);
+  }
+
+  .foto3 {
+    display: none;
+  }
+  .foto4 {
+    display: none;
+  }
+  .foto5 {
+    display: none;
+  }
+  .fotoSomos {
+    scale: 0.8;
+    border-radius: 25px;
+  }
+}
+
+@media all and (max-width: 1025px) and (min-width: 768px) {
+  .marcoSomos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tarjetaSomos {
+    scale: 1;
+    width: 70%;
+    border: 2px;
+    border-color: var(--negro);
+    border-style: solid;
+    margin-top: 50px;
+    background-color: var(--rosado);
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    box-shadow: grey 10px 10px 50px;
+  }
+
+  .mitadSuperiorTarjeta {
+    scale: 0.8;
+    background-color: white;
+    /*margin-top: -25px;*/
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .galeriaPrincipal {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    place-content: center;
+  }
+
+  .foto1 {
+    margin-left: 40px;
+    width: 230px;
+    transform: rotate(-12deg);
+    margin-top: 25px;
+    margin-bottom: 100px;
+  }
+
+  /* FOTO 2 */
+  .foto2 {
+    margin-left: 50px;
+    width: 390px;
+    height: 270px;
+    transform: rotate(8deg);
+  }
+
+  .foto3 {
+    margin-left: 50px;
+    width: 240px;
+    height: fit-content;
+  }
+
+  .foto4 {
+    margin-top: -50px;
+    margin-left: 50px;
+    width: 250px;
+    transform: rotate(5deg);
+  }
+
+  .foto5 {
+    display: none;
+    margin-left: 50px;
+    width: 250px;
+    transform: rotate(12deg);
+  }
+
+  .fotoSomos {
+    transform: rotate(0deg);
+    scale: 0.8;
+    border-radius: 25px;
+  }
+}
+
+@media all and (max-width: 1440px) and (min-width: 1025px) {
+  h1 {
+    margin-top: -10px;
+  }
+
+  .somos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contenidosSomos {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+  }
+
+  .fotosSomosDesktop {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+  }
+
+  .marcoSomos {
+    scale: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tarjetaSomos {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+
+    border: 2px;
+    border-color: var(--negro);
+    border-style: solid;
+    border-radius: 0;
+    background-color: var(--rosado);
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 0;
+    margin-bottom: 50px;
+
+    box-shadow: grey 10px 15px 20px;
+  }
+
+  .mitadSuperiorTarjeta {
+    background-color: white;
+    /*margin-top: -25px;*/
+    padding-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+
+  .galeriaPrincipal {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    place-content: center;
+  }
+
+  .foto1 {
+    margin-left: 40px;
+    width: 250px;
+    transform: rotate(-12deg);
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  .foto2 {
+    margin-left: 50px;
+    width: 420px;
+    height: 270px;
+    transform: rotate(8deg);
+  }
+
+  .foto3 {
+    margin-left: 50px;
+    width: 260px;
+    height: fit-content;
+    transform: rotate(4deg);
+  }
+
+  .foto4 {
+    display: none;
+  }
+  .foto5 {
+    display: none;
+  }
+  .fotoSomos {
+    transform: rotate(0deg);
+    scale: 0.8;
+    border-radius: 25px;
+  }
+
+  .iconoEnlace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 9000px) and (min-width: 1440px) {
+  .maincarousel {
+    padding-top: 15px;
+    padding-bottom: 90px;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  h1 {
+    margin-top: -10px;
+  }
+
+  .somos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contenidosSomos {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+  }
+
+  .fotosSomosDesktop {
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+  }
+  .marcoSomos {
+    scale: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tarjetaSomos {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+
+    border: 2px;
+    border-color: var(--negro);
+    border-style: solid;
+    border-radius: 0;
+    background-color: var(--rosado);
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 0;
+    margin-bottom: 50px;
+
+    box-shadow: grey 10px 15px 20px;
+  }
+
+  .mitadSuperiorTarjeta {
+    background-color: white;
+    /*margin-top: -25px;*/
+    padding-top: 0;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+
+  .displaySomos {
+    display: block;
+  }
+
+  .button-menu {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    height: 30px;
+    width: 70vw;
+    margin-left: 400px;
+    transition: none;
+    background-color: var(--ocrer-light);
+    z-index: 100;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: var(--ocrer-light);
+
+    width: 70%;
+    height: 25px;
+    padding: 20px;
+  }
+
+  .link-item1:hover::after {
+    width: 0;
+  }
+  .link-item2:hover::after {
+    width: 0;
+  }
+  .link-item3:hover::after {
+    width: 0;
+  }
+  .link-item4:hover::after {
+    width: 0;
+  }
+
+  .link-item5:hover::after {
+    width: 0;
+  }
+  .galeriaPrincipal {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    place-content: center;
+  }
+
+  .foto1 {
+    margin-top: -15px;
+    margin-left: 40px;
+    width: 250px;
+    transform: rotate(-12deg);
+  }
+
+  .foto2 {
+    margin-top: 15px;
+    margin-left: 50px;
+    width: 430px;
+    height: 300px;
+    transform: rotate(-8deg);
+  }
+
+  .foto3 {
+    margin-top: -50px;
+    margin-left: 50px;
+    width: 250px;
+  }
+
+  .foto4 {
+    margin-top: -15px;
+    margin-left: 50px;
+    width: 250px;
+    transform: rotate(5deg);
+  }
+
+  .foto5 {
+    margin-top: -15px;
+    margin-left: 50px;
+    width: 250px;
+    transform: rotate(12deg);
+  }
+
+  .fotoSomos {
+    transform: rotate(0deg);
+    scale: 0.8;
+    border-radius: 25px;
+  }
+
+  .iconoEnlace {
+    /*margin-top: 60px;*/
+    height: 400px;
+    padding: 50px;
+    padding-top: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

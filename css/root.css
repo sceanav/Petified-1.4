@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+:root {
+  /* Colores */
+  --morado: #83256f;
+  --morado-light: #935a8c;
+  --negro: #2e2928;
+  --ocre: #af7a5d;
+  --ocre-light: #feead4;
+  --ocrer: #c59793;
+  --ocrer-light: #f8efec;
+  --rosado: #e5aaa3;
+
+  /* borders */
+  --border: 10px;
+
+  /* fuentes */
+
+  /* Tamaños */
+  --text-medium: 1.2em;
+  --text-small: 0.75em;
+  --text-large: 2.5em;
+  --text-xlarge: 3em;
+
+  --text-mv-medium: 1.2em;
+  --text-mv-small: 0.75em;
+  --text-mv-large: 2.5em;
+  --text-mv-xlarge: 3em;
+
+  /* Fuentes títulos */
+
+  --fuente-titulo: "MuseoModerno";
+  --fuente-titulo-estilo: normal;
+  --fuente-titulo-peso: 500;
+  --fuente-titulo-altura-linea: 130%;
+
+  /* Fuentes contenidos */
+
+  --fuente-contenido: "Roboto";
+  --fuente-contenido-estilo: normal;
+  --fuente-contenido-peso: 400;
+  --fuente-contenido-altura-linea: 100%;
+}
