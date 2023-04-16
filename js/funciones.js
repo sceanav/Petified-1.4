@@ -22,7 +22,7 @@ const inputs = document.querySelectorAll(".formulario .campo-input");
 // --------------------
 // -----------------------------------paso4
 const validarFormulario = (e) => {
-  switch (e.target.name) {
+  switch (e.target.id) {
     case "nombre":
       if (expresiones.nombre.test(e.target.value)) {
         document
@@ -33,6 +33,7 @@ const validarFormulario = (e) => {
           .querySelector("#campo-nombre .campo-error")
           .classList.add("campo-error-activo");
       }
+
       break;
 
     case "telefono":
