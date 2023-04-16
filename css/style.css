@@ -131,10 +131,15 @@ form {
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 600px;
+  height: auto;
   line-height: 30px;
-  background-color: cornflowerblue;
+  background-color: var(--rosado);
   padding: 30px;
+}
+
+.mainForm {
+  display: flex;
+  place-content: center;
 }
 
 .contenedorBoton {
@@ -144,26 +149,52 @@ form {
 }
 
 .buttonContacto {
-  width: 100px;
-  height: 35px;
+  width: 200px;
+  height: 45px;
 }
 
 .radiales {
-  line-height: 80px;
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.spanContacto {
-  color: red;
-  font-size: 0.8rem;
+.campo-label {
+  display: block;
+
+  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
-.invisible {
+.campo-grupo {
+  position: relative;
+}
+
+.campo-input {
+  width: 100%;
+  border: 3px solid transparent;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  line-height: 1;
+  height: 2rem;
+  padding-left: 1rem;
+}
+
+.campo-input:focus {
+  border: 3px solid #dcb404;
+  outline: none;
+  box-shadow: 3px 0 3rem rgba(163, 163, 163, 0.5);
+}
+
+.campo-error {
+  font-size: 1.2rem;
+  margin-bottom: 0;
   display: none;
 }
 
-.visible {
+.campo-error-activo {
   display: block;
-  border: 2px dashed red;
+  color: red;
 }
 /* -------- FIN FORMULARIO CONTACT ------- */
 
