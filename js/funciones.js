@@ -1,50 +1,52 @@
 const expresiones = {
-  usuario: /^[a-zA-Z0-9\_\-]{6,16}$/, // Letras, números, guión y guión bajo
   nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos
-  password: /^.{6,12}$/, // 8 a 12 caracteres (cualquier)
-  password2: /^.{6,12}$/,
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   telefono: /^\d{8,14}$/, // 8 a 14 dígitos
 };
 
-/*const campos = {
-  usuario: false,
+const campos = {
   nombre: false,
-  password: false,
-  password2: false,
-  correo: false,
   telefono: false,
-};*/
+  correo: false,
+};
 
 let miformulario = document.querySelector("#formulario");
 
-inputs.array.forEach((input) => {
-  input.addEventListener("keyup", validaFormulario(miformulario)); //llamo a validar cada vez que dejo de pulsar una tecla
-  input.addEventListener("blur", validaFormulario(miformulario)); //llamo a validar cuando cambio de campo (pierdo el foco del campo actual)
-});
+//--------------------
+//---- Selectores ----
+//--------------------
+// -----------------------------------paso2
+const formulario = document.querySelector("#formulario");
+const inputs = document.querySelectorAll("#formulario .campo-input");
 
-function validaFormulario(e) {
+// --------------------
+// ---- Validación ----
+// --------------------
+// -----------------------------------paso4
+const validarFormulario = (e) => {
   switch (e.target.name) {
-    case "nombre":
-      if (e.target.test(e.target.value)) {
+    case "usuario":
+      if (expresiones.usuario.test(e.target.value)) {
+        document
+          .querySelector("#campo-usuario .campo-error")
+          .classList.remove("campo-error-activo");
       } else {
-        e.querySelector("#errorNombre").classList.remove("invisible");
-        e.querySelector("#errorNombre").classList.add("visible");
-      }
-
-    case "correo":
-      if (e.correo.test(e.target.value)) {
-      } else {
-        e.querySelector("#errorCorreo").classList.remove("invisible");
-        e.querySelector("#errorCorreo").classList.add("visible");
+        document
+          .querySelector("#campo-usuario .campo-error")
+          .classList.add("campo-error-activo");
       }
       break;
+
     case "password":
-      if (e.password.test(e.target.value)) {
-      } else {
-        e.querySelector("#errorPassword").classList.remove("invisible");
-        e.querySelector("#errorPassword").classList.add("visible");
-      }
+      break;
+
+    case "email":
       break;
   }
-}
+};
+
+// -----------------------------------paso3
+inputs.forEach((input) => {
+  input.addEventListener("keyup", validarFormulario);
+  input.addEventListener("blur", validarFormulario);
+});
