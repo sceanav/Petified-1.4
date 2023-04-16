@@ -10,8 +10,6 @@ const campos = {
   correo: false,
 };
 
-let miformulario = document.querySelector("#formulario");
-
 //--------------------
 //---- Selectores ----
 //--------------------
@@ -25,28 +23,46 @@ const inputs = document.querySelectorAll("#formulario .campo-input");
 // -----------------------------------paso4
 const validarFormulario = (e) => {
   switch (e.target.name) {
-    case "usuario":
-      if (expresiones.usuario.test(e.target.value)) {
+    case "nombre":
+      if (expresiones.nombre.test(e.target.value)) {
         document
-          .querySelector("#campo-usuario .campo-error")
+          .querySelector("#campo-nombre .campo-error")
           .classList.remove("campo-error-activo");
       } else {
         document
-          .querySelector("#campo-usuario .campo-error")
+          .querySelector("#campo-nombre .campo-error")
           .classList.add("campo-error-activo");
       }
       break;
 
-    case "password":
+    case "telefono":
+      if (expresiones.telefono.test(e.target.value)) {
+        document
+          .querySelector("#campo-telefono .campo-error")
+          .classList.remove("campo-error-activo");
+      } else {
+        document
+          .querySelector("#campo-telefono .campo-error")
+          .classList.add("campo-error-activo");
+      }
       break;
 
-    case "email":
+    case "correo":
+      if (expresiones.correo.test(e.target.value)) {
+        document
+          .querySelector("#campo-correo .campo-error")
+          .classList.remove("campo-error-activo");
+      } else {
+        document
+          .querySelector("#campo-correo .campo-error")
+          .classList.add("campo-error-activo");
+      }
       break;
   }
 };
 
 // -----------------------------------paso3
 inputs.forEach((input) => {
-  input.addEventListener("keyup", validarFormulario);
-  input.addEventListener("blur", validarFormulario);
+  input.addEventListener("keyup", validarFormulario(formulario));
+  input.addEventListener("blur", validarFormulario(formulario));
 });
