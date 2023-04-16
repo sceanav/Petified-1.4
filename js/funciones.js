@@ -14,8 +14,8 @@ const campos = {
 //---- Selectores ----
 //--------------------
 // -----------------------------------paso2
-const formulario = document.querySelector("#formulario");
-const inputs = document.querySelectorAll("#formulario .campo-input");
+const formulario = document.querySelector(".formulario");
+const inputs = document.querySelectorAll(".formulario .campo-input");
 
 // --------------------
 // ---- Validación ----
@@ -64,5 +64,6 @@ const validarFormulario = (e) => {
 // -----------------------------------paso3
 inputs.forEach((input) => {
   input.addEventListener("keyup", validarFormulario(formulario));
+
   input.addEventListener("blur", validarFormulario(formulario));
 });
