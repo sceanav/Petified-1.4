@@ -36,19 +36,28 @@ const validarFormulario = (e) => {
       }
       break;
 
-    case "password":
-      if (expresiones.password.test(e.target.value)) {
+    case "telefono":
+      if (expresiones.telefono.test(e.target.value)) {
         document
-          .querySelector("#campo-password .campo-error")
+          .querySelector("#campo-telefono .campo-error")
           .classList.remove("campo-error-activo");
       } else {
         document
-          .querySelector("#campo-password .campo-error")
+          .querySelector("#campo-telefono .campo-error")
           .classList.add("campo-error-activo");
       }
       break;
 
-    case "email":
+    case "correo":
+      if (expresiones.correo.test(e.target.value)) {
+        document
+          .querySelector("#campo-correo .campo-error")
+          .classList.remove("campo-error-activo");
+      } else {
+        document
+          .querySelector("#campo-correo .campo-error")
+          .classList.add("campo-error-activo");
+      }
       break;
   }
 };
