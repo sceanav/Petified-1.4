@@ -1,44 +1,94 @@
+//----------------------------------------
+//---- Expresiones Regulares y Campos ----
+//----------------------------------------
 const expresiones = {
-  nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos
+  usuario: /^[a-zA-Z0-9\_\-]{6,16}$/, // Letras, números, guión y guión bajo
+  password: /^.{6,12}$/, // 8 a 12 caracteres (cualquier)
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  telefono: /^\d{8,14}$/, // 8 a 14 dígitos
 };
 
 const campos = {
-  nombre: false,
+  usuario: false,
+  password: false,
   correo: false,
-  telefono: false,
 };
 
-let miformulario = document.querySelector("#formulario");
+//----------------------------------------
+//-------------- Selectores --------------
+//----------------------------------------
+const formulario = document.querySelector("#formulario");
+const inputs = document.querySelectorAll("#formulario .campo-input");
 
-inputs.array.forEach((input) => {
-  input.addEventListener("keyup", validaFormulario(miformulario)); //llamo a validar cada vez que dejo de pulsar una tecla
-  input.addEventListener("blur", validaFormulario(miformulario)); //llamo a validar cuando cambio de campo (pierdo el foco del campo actual)
-});
-
-function validaFormulario(e) {
+//----------------------------------------
+//-------------- Validacion --------------
+//----------------------------------------
+const validarFormulario = (e) => {
   switch (e.target.name) {
     case "nombre":
-      if (e.target.test(e.target.value)) {
+      if (expresiones.usuario.test(e.target.value)) {
+        document
+          .querySelector("#campo-nombre .campo-error")
+          .classList.remove("campo-error-activo");
       } else {
-        e.querySelector("#errorNombre").classList.remove("invisible");
-        e.querySelector("#errorNombre").classList.add("visible");
-      }
-
-    case "correo":
-      if (e.correo.test(e.target.value)) {
-      } else {
-        e.querySelector("#errorCorreo").classList.remove("invisible");
-        e.querySelector("#errorCorreo").classList.add("visible");
+        document
+          .querySelector("#campo-nombre .campo-error")
+          .classList.add("campo-error-activo");
       }
       break;
-    case "telefono":
-      if (e.telefono.test(e.target.value)) {
+
+    case "password":
+      if (expresiones.password.test(e.target.value)) {
+        document
+          .querySelector("#campo-password .campo-error")
+          .classList.remove("campo-error-activo");
       } else {
-        e.querySelector("#errorTelefono").classList.remove("invisible");
-        e.querySelector("#errorTelefono").classList.add("visible");
+        document
+          .querySelector("#campo-password .campo-error")
+          .classList.add("campo-error-activo");
       }
+      break;
+
+    case "email":
       break;
   }
-}
+};
+
+//----------------------------------------
+inputs.forEach((input) => {
+  input.addEventListener("keyup", validarFormulario);
+  input.addEventListener("blur", validarFormulario);
+});
+
+//----------------------------------------
+//---------- Validar Formulario ----------
+//----------------------------------------
+
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault(); //prevenimos que se envíen los datos antes de validarlos
+
+  const checkbox = document.querySelector("#checkbox");
+  //para el check box ponemos .checked como atributo validado
+  if (campos.usuario && campos.password && checkbox.checked) {
+    formulario.reset();
+
+    document
+      .querySelector("#mensaje-exito")
+      .classList.add("mensaje-exito-activo");
+    //temporizador para que desaparezca el mensaje pasado un tiempo
+    setTimeout(() => {
+      document
+        .querySelector("#mensaje-exito")
+        .classList.remove("mensaje-exito-activo");
+    }, 5000);
+  } else {
+    document
+      .querySelector("#campo-mensaje")
+      .classList.add("campo-mensaje-activo");
+    //temporizador para que desaparezca el mensaje pasado un tiempo
+    setTimeout(() => {
+      document
+        .querySelector("#campo-mensaje")
+        .classList.remove("campo-mensaje-activo");
+    }, 5000);
+  }
+});

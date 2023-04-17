@@ -21,9 +21,9 @@
           <div class="nav-links">
             <a class="link-item link-item1" href="index.html">Inicio</a>
             <a class="link-item link-item2" href="somos.html">Quiénes somos</a>
-            <a class="link-item link-item3" href="obrasocial.html">Colabora</a>
+            <a class="link-item link-item3" href="colabora.html">Colabora</a>
             <a class="link-item link-item4" href="adopta.html">Adopta</a>
-            <a class="link-item link-item5" href="adopta.html">Contacto</a>
+            <a class="link-item link-item5" href="contacta.html">Contacto</a>
           </div>
         </nav>
         <button id="button-menu" class="button-menu">
@@ -41,54 +41,57 @@
     </div>
 
     <main class="mainForm">
-      <form
-        action=""
-        class="contenedor formulario"
-        id="formulario"
-        name="formulario"
-      >
+      <form class="formulario" id="formulario">
+        <!-- Usuario -->
         <div class="campo" id="campo-nombre">
-          <label for="nombre" class="campo-label">Nombre:</label>
-          <input
-            type="text"
-            class="campo-input"
-            name="nombre"
-            id="nombre"
-            placeholder="Juan Pérez"
-          />
-          <p id="errorNombre" class="invisible">
-            Formato de nombre incorrecto.
+          <label for="nombre" class="campo-label">Nombre</label>
+          <input type="text" class="campo-input" name="nombre" id="nombre" />
+          <p class="campo-error">
+            El nombre debe contener de 6 a 16 caracteres y solo puede estar
+            compuesto por letras, números y guión bajo
           </p>
         </div>
 
-        <div class="campo" id="campo-correo">
-          <label for="correo" class="campo-label">E-mail:</label>
-          <input type="text" class="campo-input" name="correo" id="correo" />
-          <p id="errorCorreo" class="invisible">
-            Formato de teléfono incorrecto.
+        <!-- Password -->
+        <div class="campo" id="campo-password">
+          <label for="password" class="campo-label">Contraseña</label>
+          <div class="campo-grupo">
+            <input
+              type="password"
+              class="campo-input"
+              name="password"
+              id="password"
+            />
+          </div>
+          <p class="campo-error">
+            La contraseña tiene que ser de 6 a 12 caracteres
           </p>
         </div>
 
-        <div class="campo" id="campo-telefono">
-          <label for="telefono" class="campo-label">Teléfono:</label>
-          <input
-            type="text"
-            class="campo-input"
-            name="telefono"
-            id="telefono"
-          />
-          <p id="errorTelefono" class="invisible">
-            Formato de teléfono incorrecto.
+        <!-- Email -->
+        <div class="campo" id="campo-email">
+          <label for="email" class="campo-label">Correo Electrónico</label>
+          <div class="campo-grupo">
+            <input type="email" class="campo-input" name="email" id="email" />
+          </div>
+          <p class="campo-error">
+            El correo solo puede contener letras, números, puntos, guiones y
+            guión bajo
           </p>
         </div>
 
-        <label for="nacimiento">Fecha de nacimiento:</label>
-        <input
-          class="campo-input"
-          type="date"
-          name="nacimiento"
-          id="nacimiento"
-        />
+        <!-- Checkbox -->
+        <div class="campo campo-checkbox" id="campo-checkbox">
+          <label class="campo-label">
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="checkbox"
+              id="checkbox"
+            />
+            Acepto las condiciones
+          </label>
+        </div>
 
         <div class="radiales">
           <label for="interes">Quieres adoptar: </label>
@@ -96,8 +99,21 @@
           <input type="radio" name="interes" id="perros" value="perros" />Perros
           <input type="radio" name="interes" id="otros" value="otros" />Otros
         </div>
-        <div class="contenedorBoton">
-          <button class="buttonContacto" id="botonEnvio">Enviar</button>
+
+        <!-- Campo mensaje -->
+        <div class="campo-mensaje" id="campo-mensaje">
+          <p>
+            <i class="fas fa-exclamation-triangle"></i>
+            <b>Error:</b> Por favor completa el formulario correctamente.
+          </p>
+        </div>
+
+        <!-- Botón Enviar -->
+        <div class="campo-boton" id="campo-boton">
+          <input type="submit" class="boton" value="Enviar" />
+          <p class="mensaje-exito" id="mensaje-exito">
+            ¡El Formulario fue enviado con éxito!
+          </p>
         </div>
       </form>
     </main>

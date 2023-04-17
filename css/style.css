@@ -127,7 +127,7 @@ p {
 /* ---------- FIN CARROUSEL ---------- */
 
 /* -------- FORMULARIO CONTACT ------- */
-form {
+/*form {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -137,10 +137,7 @@ form {
   padding: 30px;
 }
 
-.mainForm {
-  display: flex;
-  place-content: center;
-}
+
 
 .contenedorBoton {
   display: flex;
@@ -153,11 +150,7 @@ form {
   height: 45px;
 }
 
-.radiales {
-  line-height: 60px;
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .campo-label {
   display: block;
@@ -195,7 +188,176 @@ form {
   font-size: 1.2rem;
   margin-bottom: 0;
   display: none;
+}*/
+
+.mainForm {
+  margin: 0 auto;
+  width: min(90%, 80rem);
 }
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.radiales {
+  line-height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 80rem) {
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+}
+
+.campo-label {
+  display: block;
+  font-family: MuseoModerno;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.campo-grupo {
+  position: relative;
+}
+
+.campo-input {
+  width: 100%;
+  border: 3px solid transparent;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  line-height: 1.5;
+  height: 2.5rem;
+  padding-left: 1rem;
+}
+
+.campo-input:focus {
+  border: 3px solid #dcb404;
+  outline: none;
+  box-shadow: 3px 0 3rem rgba(163, 163, 163, 0.5);
+}
+
+.campo-error {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  display: none;
+}
+
+.campo-error-activo {
+  display: block;
+}
+
+.campo-validacion {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  z-index: 1;
+  font-size: 1.6rem;
+  opacity: 0;
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+}
+
+.campo-checkbox,
+.campo-mensaje,
+.campo-boton {
+  grid-column: span 2;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 80rem) {
+  .campo-checkbox,
+  .campo-mensaje,
+  .campo-boton {
+    grid-column: 1;
+  }
+}
+
+.campo-mensaje {
+  height: 4.5rem;
+  line-height: 4.5rem;
+  background-color: #f66;
+  padding: 0 15px;
+  border-radius: 5px;
+  display: none;
+}
+
+.campo-mensaje-activo {
+  display: block;
+}
+
+.campo-mensaje p {
+  margin: 0;
+  color: #fff;
+}
+
+.campo-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boton {
+  height: 45px;
+  line-height: 45px;
+  width: 30%;
+  background: #dcb404;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media (max-width: 80rem) {
+  .boton {
+    width: 100%;
+  }
+}
+
+.boton:hover {
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
+}
+
+.mensaje-exito {
+  height: 4.5rem;
+  line-height: 4.5rem;
+  background-color: #119200;
+  padding: 0 5px;
+  border-radius: 5px;
+  display: none;
+}
+
+.mensaje-exito-activo {
+  display: block;
+}
+
+/*--- Validación ---*/
+
+.campo-correcto .campo-validacion {
+  color: #119200;
+  opacity: 1;
+}
+
+.campo-incorrecto .campo-label {
+  color: #f66;
+}
+
+.campo-incorrecto .campo-validacion {
+  color: #f66;
+  opacity: 1;
+}
+
+.campo-incorrecto .campo-input {
+  border: 3px solid #f66;
+}
+
 /* -------- FIN FORMULARIO CONTACT ------- */
 
 /* ---------------------------------------------------- */
