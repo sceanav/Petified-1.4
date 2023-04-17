@@ -3,7 +3,7 @@
 //----------------------------------------
 const expresiones = {
   usuario: /^[a-zA-Z0-9\_\-]{6,16}$/, // Letras, números, guión y guión bajo
-  password: /^.{6,12}$/, // 8 a 12 caracteres (cualquier)
+  password: /^[0-9]{9}$/,
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 };
 
