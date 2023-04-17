@@ -6,65 +6,39 @@ const expresiones = {
 
 const campos = {
   nombre: false,
-  telefono: false,
   correo: false,
+  telefono: false,
 };
 
-//--------------------
-//---- Selectores ----
-//--------------------
-// -----------------------------------paso2
-const formulario = document.querySelector(".formulario");
-const inputs = document.querySelectorAll(".formulario .campo-input");
+let miformulario = document.querySelector("#formulario");
 
-// --------------------
-// ---- Validación ----
-// --------------------
-// -----------------------------------paso4
-const validarFormulario = (e) => {
-  switch (e.target.id) {
+inputs.array.forEach((input) => {
+  input.addEventListener("keyup", validaFormulario(miformulario)); //llamo a validar cada vez que dejo de pulsar una tecla
+  input.addEventListener("blur", validaFormulario(miformulario)); //llamo a validar cuando cambio de campo (pierdo el foco del campo actual)
+});
+
+function validaFormulario(e) {
+  switch (e.target.name) {
     case "nombre":
-      if (expresiones.nombre.test(e.target.value)) {
-        document
-          .querySelector("#campo-nombre .campo-error")
-          .classList.remove("campo-error-activo");
+      if (e.target.test(e.target.value)) {
       } else {
-        document
-          .querySelector("#campo-nombre .campo-error")
-          .classList.add("campo-error-activo");
+        e.querySelector("#errorNombre").classList.remove("invisible");
+        e.querySelector("#errorNombre").classList.add("visible");
       }
-
-      break;
-
-    case "telefono":
-      if (expresiones.telefono.test(e.target.value)) {
-        document
-          .querySelector("#campo-telefono .campo-error")
-          .classList.remove("campo-error-activo");
-      } else {
-        document
-          .querySelector("#campo-telefono .campo-error")
-          .classList.add("campo-error-activo");
-      }
-      break;
 
     case "correo":
-      if (expresiones.correo.test(e.target.value)) {
-        document
-          .querySelector("#campo-correo .campo-error")
-          .classList.remove("campo-error-activo");
+      if (e.correo.test(e.target.value)) {
       } else {
-        document
-          .querySelector("#campo-correo .campo-error")
-          .classList.add("campo-error-activo");
+        e.querySelector("#errorCorreo").classList.remove("invisible");
+        e.querySelector("#errorCorreo").classList.add("visible");
+      }
+      break;
+    case "telefono":
+      if (e.telefono.test(e.target.value)) {
+      } else {
+        e.querySelector("#errorTelefono").classList.remove("invisible");
+        e.querySelector("#errorTelefono").classList.add("visible");
       }
       break;
   }
-};
-
-// -----------------------------------paso3
-inputs.forEach((input) => {
-  input.addEventListener("keyup", validarFormulario(formulario));
-
-  input.addEventListener("blur", validarFormulario(formulario));
-});
+}

@@ -186,15 +186,15 @@ form {
   box-shadow: 3px 0 3rem rgba(163, 163, 163, 0.5);
 }
 
-.campo-error {
+.visible {
+  display: block;
+  color: red;
+}
+
+.invisible {
   font-size: 1.2rem;
   margin-bottom: 0;
   display: none;
-}
-
-.campo-error-activo {
-  display: block;
-  color: red;
 }
 /* -------- FIN FORMULARIO CONTACT ------- */
 

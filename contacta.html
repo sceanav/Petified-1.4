@@ -56,13 +56,17 @@
             id="nombre"
             placeholder="Juan Pérez"
           />
-          <p class="campo-error">Formato de nombre incorrecto.</p>
+          <p id="errorNombre" class="invisible">
+            Formato de nombre incorrecto.
+          </p>
         </div>
 
         <div class="campo" id="campo-correo">
           <label for="correo" class="campo-label">E-mail:</label>
           <input type="text" class="campo-input" name="correo" id="correo" />
-          <p class="campo-error">Formato de teléfono incorrecto.</p>
+          <p id="errorCorreo" class="invisible">
+            Formato de teléfono incorrecto.
+          </p>
         </div>
 
         <div class="campo" id="campo-telefono">
@@ -73,7 +77,9 @@
             name="telefono"
             id="telefono"
           />
-          <p class="campo-error">Formato de teléfono incorrecto.</p>
+          <p id="errorTelefono" class="invisible">
+            Formato de teléfono incorrecto.
+          </p>
         </div>
 
         <label for="nacimiento">Fecha de nacimiento:</label>
